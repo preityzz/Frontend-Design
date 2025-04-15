@@ -5,20 +5,34 @@ import Link from "next/link";
 import Head from "next/head";
 
 export default function Navigation() {
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileDevice, setIsMobileDevice] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
+      const isMobile = window.innerWidth < 768;
+      setIsMobileDevice(isMobile);
+
+    
+      if (!isMobile) {
+        setIsMobileMenuOpen(false);
+      }
     };
 
+  
     handleResize();
+
     window.addEventListener("resize", handleResize);
 
+  
     return () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
 
   return (
     <>
@@ -40,7 +54,6 @@ export default function Navigation() {
           />
         </div>
 
-        {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-6">
           <Link
             href="/"
@@ -98,9 +111,11 @@ export default function Navigation() {
           Contact Us
         </Link>
 
+        {/* Mobile Menu Button */}
         <button
           className="md:hidden p-2"
-          onClick={() => setIsMobile(!isMobile)}
+          onClick={toggleMobileMenu}
+          aria-label="Toggle mobile menu"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -119,7 +134,8 @@ export default function Navigation() {
         </button>
       </nav>
 
-      {isMobile && (
+    
+      {isMobileDevice && isMobileMenuOpen && (
         <div className="md:hidden bg-gray-900/90 backdrop-blur-sm px-4 py-2 absolute top-16 left-0 right-0 z-20 font-['Inter',sans-serif]">
           <div className="flex flex-col space-y-3 py-2">
             <Link
@@ -172,7 +188,7 @@ export default function Navigation() {
             </Link>
             <Link
               href="/contact"
-              className="border-2  border-cyan-400 text-white px-6 py-2 rounded-full flex items-center justify-center transition duration-300 w-full hover:bg-cyan-900/30 font-medium text-base mt-2"
+              className="border-2 border-cyan-400 text-white px-6 py-2 rounded-full flex items-center justify-center transition duration-300 w-full hover:bg-cyan-900/30 font-medium text-base mt-2"
             >
               Contact Us
             </Link>

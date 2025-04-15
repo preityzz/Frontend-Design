@@ -20,7 +20,6 @@ export default function Home() {
         />
       </Head>
 
-      {/* Background Video */}
       <div className="absolute inset-0 z-0">
         <video
           autoPlay
@@ -34,7 +33,6 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70"></div>
       </div>
 
-      {/* God Rays Overlay */}
       <div className="absolute inset-0 z-0 opacity-30">
         <video
           autoPlay
@@ -47,11 +45,9 @@ export default function Home() {
         </video>
       </div>
 
-      {/* Main Content */}
       <div className="relative z-10">
         <Navigation />
 
-        {/* Hero Section */}
         <div className="container mx-auto px-6 py-16 md:py-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-semibold mb-2 tracking-wide text-cyan-50">
@@ -125,14 +121,8 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Project Showcase - 3D Perspective Layout */}
         <div className="container mx-auto px-6 py-20 md:py-12 relative">
-          {/* Purple/Pink Glow Effect */}
-          <div className="absolute inset-0 bg-gradient-radial from-fuchsia-500/20 via-transparent to-transparent rounded-full filter blur-xl opacity-70"></div>
-
-          {/* Perspective container */}
           <div className="relative h-[450px] md:h-[500px] flex items-center justify-center perspective-1500">
-            {/* Left Project - Increased Size, More Tilt */}
             <div className="absolute transform -rotate-20 -translate-x-[55%] md:-translate-x-[58%]  md:-translate-y-[15%] scale-85 md:scale-90 z-10 hover:z-30 transition-all duration-500 hover:scale-95 origin-right">
               <div className="bg-gray-800 rounded-lg shadow-2xl overflow-hidden border border-gray-700 hover:border-cyan-500/50 transition-all duration-300 w-[280px] md:w-[320px]">
                 <div className="relative">
@@ -148,7 +138,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Center Project - Slightly Larger */}
             <div className="absolute z-15 hover:z-30 transform hover:scale-105 transition-all duration-500">
               <div className="bg-gradient-to-b from-gray-800 to-gray-900 rounded-md shadow-2xl overflow-hidden border border-cyan-500/50  md:w-[340px]">
                 <div className="relative">
@@ -169,7 +158,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right Project - Increased Size, More Tilt */}
             <div className="absolute transform rotate-20 translate-x-[55%] md:translate-x-[58%]  md:-translate-y-[15%] scale-85 md:scale-90 z-10 hover:z-30 transition-all duration-500 hover:scale-95 origin-left">
               <div className="bg-gray-800 rounded-lg shadow-2xl overflow-hidden border border-gray-700 hover:border-cyan-500/50 transition-all duration-300 w-[280px] md:w-[320px]">
                 <div className="relative">
@@ -184,9 +172,6 @@ export default function Home() {
                 </div>
               </div>
             </div>
-
-            {/* Enhanced Glow Effect */}
-            <div className="absolute z-0 w-[400px] h-[250px] bg-gradient-to-r from-cyan-500/20 to-fuchsia-500/20 rounded-full blur-xl"></div>
           </div>
         </div>
       </div>
