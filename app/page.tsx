@@ -1,29 +1,12 @@
-// pages/index.js
 "use client";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import Navigation from "../components/Navigation";
 
 export default function Home() {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    // Check if the screen is mobile size
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
   return (
-    <div className="relative min-h-screen bg-gray-900 text-white overflow-hidden">
+    <div className="relative min-h-screen bg-gray-900 text-white overflow-hidden font-['Inter',sans-serif]">
       <Head>
         <title>Kyptronix LLP - The Next Thing in Digital Industry</title>
         <meta
@@ -31,6 +14,10 @@ export default function Home() {
           content="Kyptronix LLP - Your trusted digital partner"
         />
         <link rel="icon" href="/favicon.ico" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet"
+        />
       </Head>
 
       {/* Background Video */}
@@ -62,169 +49,16 @@ export default function Home() {
 
       {/* Main Content */}
       <div className="relative z-10">
-        {/* Navigation */}
-        <nav className="container mx-auto px-4 py-6 flex items-center justify-between">
-          <div className="flex items-center">
-            <Image
-              src="/logo.png"
-              alt="Kyptronix LLP"
-              width={150}
-              height={50}
-              className="mr-4"
-            />
-          </div>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
-            <Link
-              href="/"
-              className="text-white hover:text-blue-400 transition duration-300"
-            >
-              Home
-            </Link>
-            <Link
-              href="/about"
-              className="text-white hover:text-blue-400 transition duration-300"
-            >
-              About Us
-            </Link>
-            <Link
-              href="/services"
-              className="text-white hover:text-blue-400 transition duration-300"
-            >
-              Services
-            </Link>
-            <Link
-              href="/pricing"
-              className="text-white hover:text-blue-400 transition duration-300"
-            >
-              Package & Pricing
-            </Link>
-            <Link
-              href="/reviews"
-              className="text-white hover:text-blue-400 transition duration-300"
-            >
-              Reviews
-            </Link>
-            <Link
-              href="/portfolio"
-              className="text-white hover:text-blue-400 transition duration-300"
-            >
-              Portfolio
-            </Link>
-            <Link
-              href="/blog"
-              className="text-white hover:text-blue-400 transition duration-300"
-            >
-              Blog
-            </Link>
-            <Link
-              href="/contact"
-              className="text-white hover:text-blue-400 transition duration-300"
-            >
-              Contact
-            </Link>
-          </div>
-
-          {/* Contact Us Button */}
-          <Link
-            href="/contact"
-            className="hidden md:block border border-blue-400 text-blue-400 px-6 py-2 rounded-full hover:bg-blue-700 hover:text-white transition duration-300"
-          >
-            Contact Us
-          </Link>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2"
-            onClick={() => setIsMobile(!isMobile)}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          </button>
-        </nav>
-
-        {/* Mobile Navigation Menu */}
-        {isMobile && (
-          <div className="md:hidden bg-gray-900/90 backdrop-blur-sm px-4 py-2 absolute top-20 left-0 right-0 z-20">
-            <div className="flex flex-col space-y-3 py-2">
-              <Link
-                href="/"
-                className="text-white hover:text-blue-400 transition duration-300"
-              >
-                Home
-              </Link>
-              <Link
-                href="/about"
-                className="text-white hover:text-blue-400 transition duration-300"
-              >
-                About Us
-              </Link>
-              <Link
-                href="/services"
-                className="text-white hover:text-blue-400 transition duration-300"
-              >
-                Services
-              </Link>
-              <Link
-                href="/pricing"
-                className="text-white hover:text-blue-400 transition duration-300"
-              >
-                Package & Pricing
-              </Link>
-              <Link
-                href="/reviews"
-                className="text-white hover:text-blue-400 transition duration-300"
-              >
-                Reviews
-              </Link>
-              <Link
-                href="/portfolio"
-                className="text-white hover:text-blue-400 transition duration-300"
-              >
-                Portfolio
-              </Link>
-              <Link
-                href="/blog"
-                className="text-white hover:text-blue-400 transition duration-300"
-              >
-                Blog
-              </Link>
-              <Link
-                href="/contact"
-                className="text-white hover:text-blue-400 transition duration-300"
-              >
-                Contact
-              </Link>
-              <Link
-                href="/contact"
-                className="border border-blue-400 text-blue-400 px-6 py-2 rounded-full hover:bg-blue-700 hover:text-white transition duration-300 text-center"
-              >
-                Contact Us
-              </Link>
-            </div>
-          </div>
-        )}
+        <Navigation />
 
         {/* Hero Section */}
-        <div className="container mx-auto px-4 py-12 md:py-24">
+        <div className="container mx-auto px-6 py-16 md:py-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-semibold mb-4">
+            <h2 className="text-2xl md:text-3xl font-semibold mb-2 tracking-wide text-cyan-50">
               Kyptronix LLP –
             </h2>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+
+            <h1 className="text-4xl md:text-6xl font-extrabold mb-2 tracking-tight leading-tight">
               THE NEXT THING IN
               <br />
               <span className="bg-gradient-to-r from-red-500 to-orange-500 text-transparent bg-clip-text">
@@ -232,27 +66,27 @@ export default function Home() {
               </span>
             </h1>
 
-            <p className="text-gray-300 text-lg mb-8">
-              At Kyptronix LLP, were not just building websites, apps, or
-              marketing strategies—were creating business success. Based in
-              Delaware, we help companies across the U.S. scale rapidly,
+            <p className="text-gray-300 text-lg mb-10 leading-relaxed">
+              At Kyptronix LLP, we&apos;re not just building websites, apps, or
+              marketing strategies—we&apos;re creating business success. Based
+              in Delaware, we help companies across the U.S. scale rapidly,
               increase conversions, and dominate their industries. Whether you
               need a custom-built website that drives traffic, a mobile app that
               wows, or a blockchain solution that disrupts your industry,
               Kyptronix is your trusted digital partner.
             </p>
 
-            <p className="text-xl mb-10">
-              Dont just compete—lead. Ready to see what Kyptronix can do for
-              you?
+            <p className="text-xl mb-12 font-medium">
+              Don&apos;t just compete—lead. Ready to see what Kyptronix can do
+              for you?
             </p>
 
-            <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6">
+            <div className="flex flex-col md:flex-row justify-center items-center space-y-5 md:space-y-0 md:space-x-8">
               <Link
                 href="/get-started"
-                className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-full flex items-center justify-center transition duration-300 w-full md:w-auto"
+                className="bg-gradient-to-r from-cyan-400 to-fuchsia-500 text-white px-10 py-4 rounded-full flex items-center justify-center transition duration-300 w-full md:w-auto hover:shadow-lg hover:shadow-fuchsia-500/25 font-medium text-lg"
               >
-                Get Started Today
+                <span>Get Started Today</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5 ml-2"
@@ -261,7 +95,7 @@ export default function Home() {
                 >
                   <path
                     fillRule="evenodd"
-                    d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
                     clipRule="evenodd"
                   />
                 </svg>
@@ -269,18 +103,20 @@ export default function Home() {
 
               <Link
                 href="/portfolio"
-                className="text-white hover:text-blue-400 flex items-center justify-center transition duration-300 w-full md:w-auto"
+                className="text-white hover:text-gradient-to-r hover:from-cyan-400 hover:to-fuchsia-500 flex items-center justify-center transition duration-300 w-full md:w-auto group"
               >
-                View Our Work
+                <span className="group-hover:bg-gradient-to-r group-hover:from-cyan-400 group-hover:to-fuchsia-500 group-hover:text-transparent group-hover:bg-clip-text text-lg font-medium">
+                  View Our Work
+                </span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 ml-2"
+                  className="h-5 w-5 ml-2 group-hover:text-fuchsia-500"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >
                   <path
                     fillRule="evenodd"
-                    d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
                     clipRule="evenodd"
                   />
                 </svg>
@@ -289,57 +125,68 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Project Showcase */}
-        <div className="container mx-auto px-4 py-12 md:py-24">
-          <div className="relative">
-            <div className="flex flex-wrap justify-center gap-4 max-w-5xl mx-auto">
-              {/* Project Images */}
-              <div className="w-full md:w-1/3 p-2 transform hover:scale-105 transition duration-300">
-                <Image
-                  src="/project1.jpg"
-                  alt="Project 1"
-                  width={400}
-                  height={300}
-                  className="rounded-lg shadow-lg"
-                />
-              </div>
-              <div className="w-full md:w-1/3 p-2 transform hover:scale-105 transition duration-300">
-                <Image
-                  src="/project2.jpg"
-                  alt="Project 2"
-                  width={400}
-                  height={300}
-                  className="rounded-lg shadow-lg"
-                />
-              </div>
-              <div className="w-full md:w-1/3 p-2 transform hover:scale-105 transition duration-300">
-                <Image
-                  src="/project3.jpg"
-                  alt="Project 3"
-                  width={400}
-                  height={300}
-                  className="rounded-lg shadow-lg"
-                />
-              </div>
-              <div className="w-full md:w-1/3 p-2 transform hover:scale-105 transition duration-300">
-                <Image
-                  src="/project4.jpg"
-                  alt="Project 4"
-                  width={400}
-                  height={300}
-                  className="rounded-lg shadow-lg"
-                />
-              </div>
-              <div className="w-full md:w-1/3 p-2 transform hover:scale-105 transition duration-300">
-                <Image
-                  src="/project5.jpg"
-                  alt="Project 5"
-                  width={400}
-                  height={300}
-                  className="rounded-lg shadow-lg"
-                />
+        {/* Project Showcase - 3D Perspective Layout */}
+        <div className="container mx-auto px-6 py-20 md:py-12 relative">
+          {/* Purple/Pink Glow Effect */}
+          <div className="absolute inset-0 bg-gradient-radial from-fuchsia-500/20 via-transparent to-transparent rounded-full filter blur-xl opacity-70"></div>
+
+          {/* Perspective container */}
+          <div className="relative h-[450px] md:h-[500px] flex items-center justify-center perspective-1500">
+            {/* Left Project - Increased Size, More Tilt */}
+            <div className="absolute transform -rotate-20 -translate-x-[55%] md:-translate-x-[58%]  md:-translate-y-[15%] scale-85 md:scale-90 z-10 hover:z-30 transition-all duration-500 hover:scale-95 origin-right">
+              <div className="bg-gray-800 rounded-lg shadow-2xl overflow-hidden border border-gray-700 hover:border-cyan-500/50 transition-all duration-300 w-[280px] md:w-[320px]">
+                <div className="relative">
+                  <Image
+                    src="/project1.jpg"
+                    alt="Project 1"
+                    width={400}
+                    height={300}
+                    className="w-full h-auto"
+                  />
+                  <div className="absolute inset-0 bg-black/20 hover:bg-black/10 transition-colors duration-300"></div>
+                </div>
               </div>
             </div>
+
+            {/* Center Project - Slightly Larger */}
+            <div className="absolute z-15 hover:z-30 transform hover:scale-105 transition-all duration-500">
+              <div className="bg-gradient-to-b from-gray-800 to-gray-900 rounded-md shadow-2xl overflow-hidden border border-cyan-500/50  md:w-[340px]">
+                <div className="relative">
+                  <Image
+                    src="/project3.jpg"
+                    alt="Featured Project"
+                    width={500}
+                    height={350}
+                    className="w-full h-auto"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent hover:from-black/40 transition-opacity duration-300"></div>
+                  <div className="absolute top-3 right-3">
+                    <span className="bg-cyan-600 text-xs text-white px-2 py-1 rounded-full">
+                      FEATURED
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Project - Increased Size, More Tilt */}
+            <div className="absolute transform rotate-20 translate-x-[55%] md:translate-x-[58%]  md:-translate-y-[15%] scale-85 md:scale-90 z-10 hover:z-30 transition-all duration-500 hover:scale-95 origin-left">
+              <div className="bg-gray-800 rounded-lg shadow-2xl overflow-hidden border border-gray-700 hover:border-cyan-500/50 transition-all duration-300 w-[280px] md:w-[320px]">
+                <div className="relative">
+                  <Image
+                    src="/project4.jpg"
+                    alt="Project 4"
+                    width={400}
+                    height={300}
+                    className="w-full h-auto"
+                  />
+                  <div className="absolute inset-0 bg-black/20 hover:bg-black/10 transition-colors duration-300"></div>
+                </div>
+              </div>
+            </div>
+
+            {/* Enhanced Glow Effect */}
+            <div className="absolute z-0 w-[400px] h-[250px] bg-gradient-to-r from-cyan-500/20 to-fuchsia-500/20 rounded-full blur-xl"></div>
           </div>
         </div>
       </div>
